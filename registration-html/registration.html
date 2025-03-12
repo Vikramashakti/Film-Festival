@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+            if (password != confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            var declarationCheckbox = document.getElementById("declaration");
+            if (!declarationCheckbox.checked) {
+                alert("Please declare that the above information provided is true and correct.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="Wrapper">
+
+        <form action="register.php" method="post" onsubmit="return validateForm()">
+            <h1>Registration</h1>
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="text" name="fullname" placeholder="Full Name" required>
+                    <i class='bx bx-user'></i>
+
+                </div>
+
+                <div class="input-field">
+                    <input type="text" name="studentid" placeholder="Student ID" required>
+                    <i class='bx bxs-id-card'></i>
+
+                </div>
+            </div>
+
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="text" name="email" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
+
+                </div>
+
+                <div class="input-field">
+                    <input type="number" name="phone" placeholder="phone number" required>
+                    <i class='bx bxs-phone-call'></i>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+
+                </div>
+
+                <div class="input-field">
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+
+                </div>
+            </div>
+            <label>
+                <input type="checkbox" id="declaration" required>
+                I hereby declare that the above information provided is true and correct
+            </label><br>
+
+            <a href="../login-html/index.html">Already have an account?</a><br><br>
+
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </div>
+</body>
+
+</html>
